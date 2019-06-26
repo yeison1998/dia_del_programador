@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        dayOfProgrammer(1800);
+
+        function dayOfProgrammer(year) {
+            var result = null;
+            var day = 12;
+            if (year <= 1917 && year >= 1700) {
+                result = returnJuliano(year);
+            } else
+            if (year >= 1919 && year <= 2700) {
+                result = returnGregoriano(year);
+            } else {
+                result = new Date(year, 8, (day + 14));
+            }
+            return result.getDate() + "." + "0" + (result.getMonth() + 1) + "." + result.getFullYear();
+        }
+
+        function returnJuliano(year) {
+            var day = 12;
+            var date = new Date();
+            if (isLeapJuliano(year)) {
+                date = new Date(year, 8, day);
+            } else {
+                date = new Date(year, 8, day + 1);
+            }
+            return fecha;
+        }
+
+        function returnGregoriano(year) {
+            var day = 12;
+            var date = new Date(year, 8, day);
+            if (isLeapGregoriano(year)) {
+                date = new Date(year, 8, day);
+            } else {
+                var date = new Date(year, 8, day + 1);
+            }
+            return date;
+        }
+
+        function isLeapJuliano(year) {
+            if (year % 4 === 0) {
+                return true;
+            }
+            return false;
+        }
+
+        function isLeapGregoriano(year) {
+            if (year % 400 === 0) {
+                return true;
+            } else
+            if (year % 4 === 0 && year % 100 !== 0) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
